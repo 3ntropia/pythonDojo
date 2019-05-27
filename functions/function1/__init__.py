@@ -5,22 +5,14 @@
 # máximo hallado, o un mensaje informativo si éste no existe.
 
 
-def bigger(a,b,c):
+def bigger(a, b, c):
     if a > b:
         if a > c:
-            return a
+            return str(a)
     if b > a:
         if b > c:
-            return b
+            return str(b)
     if c > a:
         if c > b:
-            return c
+            return str(c)
     return "No hay mayores"
-
-
-var1 = input("Ingrese variable 1: ")
-var2 = input("Ingrese variable 2: ")
-var3 = input("Ingrese variable 3: ")
-
-print('El mayor es: ' + bigger(int(var1), int(var2), int(var3)))
-
