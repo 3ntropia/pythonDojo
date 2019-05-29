@@ -2,7 +2,7 @@ import unittest
 from functions.function2 import validDate
 
 
-class TestPrueba(unittest.TestCase):
+class TestValidDate(unittest.TestCase):
 
     def test_invalid_date(self):
         self.assertEqual(validDate.is_date_valid(3, 4, 5), False)
