@@ -12,5 +12,9 @@ class MyTestCase(unittest.TestCase):
     def test_return_1(self):
         self.assertEqual(returnMoney.return_money(10, 20), "$10 x1.0 ")
 
+    def test_return_2(self):
+        self.assertEqual(returnMoney.return_money(10, 520), "$500 x1.02 ")
+
+
 if __name__ == '__main__':
     unittest.main()
