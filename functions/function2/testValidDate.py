@@ -20,9 +20,12 @@ class TestValidDate(unittest.TestCase):
         self.assertEqual(validDate.is_date_valid(0, 10, 2019), False)
 
     def test_invalid_month(self):
-        self.assertEqual(validDate.is_date_valid(10, 13, 2019), False)
+        self.assertEqual(validDate.is_date_valid(10, 14, 2019), False)
 
     def test_invalid_month_2(self):
+        self.assertEqual(validDate.is_date_valid(10, 13, 2019), False)
+
+    def test_invalid_month_3(self):
         self.assertEqual(validDate.is_date_valid(10, -13, 2019), False)
 
     def test_invalid_year(self):
@@ -36,6 +39,9 @@ class TestValidDate(unittest.TestCase):
 
     def test_valid_date(self):
         self.assertEqual(validDate.is_date_valid(29, 5, 2019), True)
+
+    def test_invalid_year_2(self):
+        self.assertEqual(validDate.is_date_valid(29, 5, 3333), False)
 
     def test_valid_date_february(self):
         self.assertEqual(validDate.is_date_valid(28, 2, 2019), True)

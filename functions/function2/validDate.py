@@ -8,7 +8,7 @@ MIN_YEAR = 1900
 
 
 def is_date_valid(day, month, year):
-    if 0 < 31 < day:
+    if 1 > day or day > 31:
         return False
     elif month == 4 or month == 6 or month == 8 or month == 10:
         if day > 30:
@@ -20,9 +20,9 @@ def is_date_valid(day, month, year):
         else:
             if day != 28:
                 return False
-    if 0 < 13 < month:
+    if 1 > month or month > 12:
         return False
-    if MIN_YEAR < MAX_YEAR < year:
+    if MIN_YEAR > year or year > MAX_YEAR:
         return False
     return True
 
