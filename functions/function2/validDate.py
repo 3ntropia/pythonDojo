@@ -2,6 +2,7 @@
 # corresponden a una fecha gregoriana válida (día, mes, año). Devolver True o False
 # según la fecha sea correcta o no. Realizar también un programa para verificar el
 # comportamiento de la función.
+import datetime
 
 MAX_YEAR = 2050
 MIN_YEAR = 1900
@@ -29,3 +30,7 @@ def is_date_valid(day, month, year):
 
 def is_leap_year(year):
     return ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)
+
+
+def is_date_valid_with_date(day, month, year):
+    return datetime.datetime(year, month, day)
