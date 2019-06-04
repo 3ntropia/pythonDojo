@@ -1,10 +1,10 @@
 # Escribir dos funciones para imprimir por pantalla cada uno de los siguientes
-# patrones de asteriscos, donde la cantidad de filas se recibe como parámetro:
-#**********         **
-#**********         ****
-#**********         ******
-#**********         ********
-#**********         **********
+# patrones de asteriscos, donde la cantidad de filas se recibe como parametro:
+# **********         **
+# **********         ****
+# **********         ******
+# **********         ********
+# **********         **********
 
 
 def printer(lines):
