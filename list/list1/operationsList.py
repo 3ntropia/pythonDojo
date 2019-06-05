@@ -13,16 +13,16 @@ import random
 def create_list():
     random_list = []
     length = random.randint(10, 99)
-    for x in range(0, length):
+    for x in range(length):
         random_list.append(random.randint(1000, 9999))
     return random_list
 
 
 def sum_list(random_list):
-    sum = 0
-    for x in random_list:
-        sum += random_list[x]
-    return sum
+    sum_array = 0
+    for x in range(len(random_list)):
+        sum_array += random_list[x]
+    return sum_array
 
 
 def remove_from_list(random_list, value):
@@ -31,24 +31,17 @@ def remove_from_list(random_list, value):
     return random_list
 
 
-# WIP
 def remove_from_list_old_school(random_list, value):
-    back_up_list = random_list
-    for x in random_list:
-        if random_list[x] == value:
-            back_up_list = manual_remove(random_list, x)
+    back_up_list = []
+    for x in range(len(random_list)):
+        if random_list[x] != value:
+            back_up_list.append(random_list[x])
     return back_up_list
 
 
-def manual_remove(array_list, position):
-    for x in range(position, len(array_list) - 1):
-        array_list[x] = array_list[x + 1]
-    return array_list
-
-
 def is_palindrome(random_list):
-    for x in range(0, len(random_list / 2)):
-        if random_list[x] != random_list[len(random_list) - 1]:
+    for x in range(int(len(random_list) / 2)):
+        if random_list[x] != random_list[len(random_list) - x - 1]:
             return False
     return True
 
