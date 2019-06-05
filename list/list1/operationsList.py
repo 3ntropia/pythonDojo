@@ -31,7 +31,7 @@ def remove_from_list(random_list, value):
     return random_list
 
 
-def remove_from_list_old_school(random_list, value):
+def remove_from_list_naive(random_list, value):
     back_up_list = []
     for x in range(len(random_list)):
         if random_list[x] != value:
