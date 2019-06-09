@@ -28,7 +28,7 @@ def next_date(day, month, year):
 
 
 def add_n_days(day, month, year, number):
-    for x in range(0, number):
+    for x in range(number):
         (day, month, year) = next_date(day, month, year)
     return day, month, year
 

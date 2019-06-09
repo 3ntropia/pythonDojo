@@ -8,7 +8,7 @@
 
 
 def printer(lines):
-    for x in range(0, lines):
+    for x in range(lines):
         print('**********           ' + '**' * (x + 1))
 
 

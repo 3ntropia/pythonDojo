@@ -11,5 +11,3 @@ def sum_array_cumulative(array_list):
         sum_var += array_list[x]
         array_sum.append(sum_var)
     return array_sum
-
-

@@ -7,5 +7,5 @@
 
 def strange_sum(n):
     if 0 < n < 10:
-        return n + int(str(n)*2) + int(str(n)*3) + int(str(n)*4)
+        return n + int(str(n) * 2) + int(str(n) * 3) + int(str(n) * 4)
     return -1
