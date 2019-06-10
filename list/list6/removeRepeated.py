@@ -13,3 +13,11 @@ def remove_repeated(array_list, words_array):
         if add_to_list:
             right_array.append(array_list[x])
     return right_array
+
+
+def remove_repeated_count(array_list, words_array):
+    right_array = []
+    for x in range(len(array_list)):
+        if words_array.count(array_list[x]) == 0:
+            right_array.append(array_list[x])
+    return right_array
