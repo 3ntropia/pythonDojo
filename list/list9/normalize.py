@@ -5,3 +5,11 @@ un programa que permita verificar el comportamiento de la función. Por ejemplo,
 normalizar([1, 1, 2]) debe devolver [0.25, 0.25, 0.50]."""
 
 
+def normalize(array_list):
+    array_normalize = []
+    summ = 0
+    for x in array_list:
+        summ += x
+    for x in array_list:
+        array_normalize.append(x / summ)
+    return array_normalize

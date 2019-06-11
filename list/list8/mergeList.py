@@ -5,7 +5,7 @@ import random
 
 
 def build_list(size):
-    return [random.randint(1, 50) for x in range(size)]
+    return [random.randint(1, 50) for _ in range(size)]
 
 
 def merge_list_naive(array_list_left, array_list_right):
@@ -14,15 +14,14 @@ def merge_list_naive(array_list_left, array_list_right):
         for y in range(len(array_list_right)):
             if array_list_left[x] == array_list_right[y]:
                 intersection.append(array_list_left[x])
-    return
+    return intersection
 
 
 def merge_list_new(array_list_left, array_list_right):
     intersection = []
     for x in array_list_left:
-        for y in array_list_right:
-            if array_list_left.count(y) > 1:
-                intersection.append(x)
-    return
+        if array_list_right.count(x) > 0:
+            intersection.append(x)
+    return intersection
 
 
