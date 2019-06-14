@@ -17,4 +17,29 @@ k. Determinar qué columnas de la matriz son palíndromos (capicúas), devolvien
 una lista con los números de las mismas.
 NOTA: El valor de N debe establecerlo el programador o ingresarse por teclado,
 pero las funciones deben servir aunque este valor se modifique."""
+from list.list7 import sortList
 
+def load_numbers(size):
+    m = []
+    for i in range(size):
+        row = []
+        for j in range(size):
+            row.append(int(input("ingrese num para i=" + str(i) + " j=" + str(j) + " :")))
+        m.append(row)
+    return m
+
+
+def get_column(m, c):
+    return [row[c] for row in m]
+
+
+def order_column(m, c, size):
+    column = get_column(m, c)
+    sortList.sort()
+
+
+
+
+if __name__ == "__main__":
+    m = load_numbers(3)
+    print(m)
