@@ -106,8 +106,16 @@ def is_simetric(m):
 def inversed_transpose_matrix(m):
     m_transpose = []
     for i in range(len(m)):
-        m_transpose.append(reversed(get_column(m, i)))
+        reversed_row = get_column(m, i)[::-1]
+        m_transpose.insert(0, reversed_row)
     return m_transpose
+
+
+def is_secundary_simetric(m):
+    m_copy = m.copy()
+    if is_regular(m):
+        return m_copy == inversed_transpose_matrix(m)
+    return False
 
 
 def row_prom(m, r):
@@ -118,7 +126,6 @@ def row_prom(m, r):
 
 #TODO
 # Calcular el porcentaje de elementos con valor impar en una columna, cuyo número se recibe como parámetro.
-# Determinar si la matriz es simétrica con respecto a su diagonal secundaria.
 # Determinar qué columnas de la matriz son palíndromos (capicúas), devolviendo una lista con los números de las mismas.
 
 

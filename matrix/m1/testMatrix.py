@@ -56,5 +56,15 @@ class MyTestCase(unittest.TestCase):
     def test_inversed_transposed(self):
         self.assertEqual(o.inversed_transpose_matrix([[1, 2], [3, 1]]), [[1, 2], [3, 1]])
 
+    def test_is_secundary_simetric(self):
+        self.assertEqual(o.is_secundary_simetric([[1, 2], [3, 1]]), True)
+
+    def test_is_secundary_simetric_regular(self):
+        self.assertEqual(o.is_secundary_simetric(MyTestCase.__m__), False)
+
+    def test_is_secundary_simetric_not_regular(self):
+        self.assertEqual(o.is_secundary_simetric(MyTestCase.__m_i__), False)
+
+
 if __name__ == '__main__':
     unittest.main()
