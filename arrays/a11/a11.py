@@ -9,3 +9,10 @@ Cadena final:
 PlateroEsPequeño,Peludo,Suave;TanBlandoPorFuera,QueSeDiríaTodoDeAlgodón,QueNoLlevaHuesos.Sólo
 LosEspejosDeAzabacheDeSusOjosSonDurosCualDosEscarabajosDeCristalNegro."""
 
+
+def replace_string(string):
+    string_list = string.split()
+    result = ""
+    for word in string_list:
+        result += word.capitalize()
+    return result

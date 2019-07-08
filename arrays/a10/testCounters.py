@@ -1,5 +1,5 @@
 import unittest
-from arrays.a10 import a10
+from arrays.a10 import counters
 
 
 class MyTestCase(unittest.TestCase):
@@ -7,7 +7,7 @@ class MyTestCase(unittest.TestCase):
     __string = "lkfdsajld12831sdfj128043023cxxsqz"
 
     def test_something(self):
-        self.assertEqual(a10.count_char_numbers(MyTestCase.__string), (14, 19))
+        self.assertEqual(counters.count_char_numbers(MyTestCase.__string), (14, 19))
 
 
 if __name__ == '__main__':
