@@ -3,9 +3,7 @@ utilizar cadenas de caracteres."""
 
 
 def digit_counter(index, counter, integer):
-    counter += 1
-    index += 1
     if len(str(integer)) == index:
         return counter
     else:
-        return digit_counter(index, counter, integer)
+        return digit_counter(index + 1, counter + 1, integer)

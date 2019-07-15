@@ -25,3 +25,56 @@ dio deben grabarse en líneas diferentes. Ejemplo:
 MostrarMasAltos() Muestra por pantalla las disciplinas deportivas cuyos atletas
 superan la estatura promedio general. Obtener los datos del segundo archivo."""
 
+
+def read_file(path):
+    f = open(path, "r+")
+    lines = f.readlines()
+    f.close()
+    return lines
+
+
+def GrabarRangoAlturas(path):
+    f = open(path, "w+")
+    option = input("1- Cargar Deporte y Altura\n2- C para Cancelar")
+    lines = []
+    while option != 'C':
+        lines.append(option + "\n")
+        option = input("Siguiente: ")
+    f.writelines(lines)
+    f.close()
+
+
+def GrabarPromedio(pathProm, path):
+    lines = read_file(path)
+    new_lines = []
+    avg = -1
+    counter = 1
+    f = open(pathProm, "w+")
+    for line in lines:
+        if not line[:-1].isalpha():
+            avg += float(line[:-1])
+            counter += 1
+        else:
+            #Si es la primera
+            if avg == -1:
+                f.write(line)
+            else:
+                f.write(str(avg / counter) + "\n")
+                f.write(line)
+                avg = 0
+                counter = 1
+    #Ultima vez
+    f.write(str(avg / counter) + "\n")
+    f.close()
+
+
+def MostrarMasAltos(path):
+    f = open(path, "r+")
+    l = f.readlines()
+    print(l)
+    f.close()
+
+
+if __name__ == '__main__':
+    GrabarRangoAlturas("alturas.txt")
+    GrabarPromedio("promedios.txt", "alturas.txt")

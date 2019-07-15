@@ -7,3 +7,4 @@ c. Ingresar un horario desde teclado, verificando que sea correcto.
 d. Calcular la diferencia entre dos horarios. Si el primer horario fuera mayor al
 segundo se considerará que el primero corresponde al día anterior. En ningún
 caso la diferencia en horas puede superar las 24 horas."""
+
