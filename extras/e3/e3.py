@@ -2,3 +2,10 @@
 cadena de caracteres conteniendo una dirección de correo electrónico y devuelva
 una tupla con las distintas partes que componen dicha dirección. Ejemplo:
 alguien@uade.edu.ar -> (alguien, uade, edu, ar)."""
+
+
+def split_email(email):
+    at_split = email.split("@")
+    dot_split = at_split[1].split(".")
+    return tuple(at_split[:1] + dot_split)
+

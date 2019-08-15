@@ -8,17 +8,19 @@ d. Calcular la diferencia entre dos horarios. Si el primer horario fuera mayor a
 segundo se considerará que el primero corresponde al día anterior. En ningún
 caso la diferencia en horas puede superar las 24 horas."""
 
-from functions.function2.validDate import is_date_valid
-from functions.function9.operateDate import add_n_days
+from functions.function2 import validDate
+from functions.function9 import operateDate
 
 
-def validate_date(date):
-    tup1 = (12, 34.56);
-    return is_date_valid(date)
+def input_valid_date():
+    day = int(input("dia:"))
+    month = int(input("mont:"))
+    year = int(input("year:"))
+    date = (day, month, year)
+    return validDate.is_date_valid(date[0], date[1], date[2])
 
 
-def add_n_days(date, n):
-    day, month, year = add_n_days(date, n)
-    print(day, month, year)
-
+def add_days(n, date):
+    (day, month, year) = operateDate.add_n_days(date[0], date[1], date[2], n)
+    print(date(day, month, year))
 
