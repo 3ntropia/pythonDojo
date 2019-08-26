@@ -14,15 +14,14 @@ moving = []
 
 def setup():
     size(resolution, resolution, P3D)
-    #lights()>
     frameRate(2)
     background(0)
     for x in range(m_size):
         for z in range(m_size):
             if random(0, 1) > .5:
-                lift_up.append(lift(x, 0, z, -1))
+                lift_up.append(lift(x, 0, z, +1))
             else:
-                lift_down.append(lift(x, m_size, z, 1))
+                lift_down.append(lift(x, m_size - 1, z, -1))
             
 def draw_matrix(matrix):
     for x in range(m_size):
@@ -46,11 +45,11 @@ def draw():
     translate(20, 0, -200)
     rotateX(-PI/5)
     rotateY(0.9)
-    #p = int(random(0,2))
+    
     global option
     global spin
     global lift_up
-    global lift_up
+    global lift_down
     global moving
     if option == 0:
         m = random_pattern(m_size)
@@ -61,13 +60,14 @@ def draw():
     elif option == 2:
         m = bullets_pattern(m_size, bullets)
     elif option == 3:
-        m = lift_pattern(m_size, lift_up, lift_up, moving)
+        m, lift_up, lift_down, moving = lift_pattern(m_size, lift_up, lift_down, moving)
+        print('len moving: ' + str(len(moving)))
     #m = guess(m_size)
     draw_matrix(m)
     spin += 1
     if spin == 9 and option != 2:
         spin = 0
-        option += 1
+        #option += 1
     elif spin == 20:
         spin = 0
         option += 1

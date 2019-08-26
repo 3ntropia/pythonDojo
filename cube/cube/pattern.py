@@ -69,8 +69,12 @@ def generate_bullet(m_size):
 
 def lift_pattern(m_size, lift_up, lift_down, moving):
     if len(moving) == 0:
-        l = pick_lift_up(m_size, lift_up)
-        moving.append(l)
+        lu, lift_up = pick_lift(lift_up)
+        ld, lift_down = pick_lift(lift_down)
+        #lu.print_lift()
+        #ld.print_lift()
+        moving.append(lu)
+        moving.append(ld)
     matrix = default_matrix(m_size)
     for l in lift_up:
         matrix[l.x][l.y][l.z] = True
@@ -78,22 +82,21 @@ def lift_pattern(m_size, lift_up, lift_down, moving):
         matrix[l.x][l.y][l.z] = True
     for l in moving:
         matrix[l.x][l.y][l.z] = True
-        l.y += l.y * l.d
-        if l.y == m_size:
+        l.y += l.d
+        #print('l.y: ' + str(l.y))
+        if l.y == m_size -1:
             moving.remove(l)
             lift_down.append(l)
             l.d = -1
-        else:
+        elif l.y == 0:
             moving.remove(l)
             lift_up.append(l)
             l.d = 1
+    #print('pre len moving: ' + str(len(moving)))
+    return matrix, lift_up, lift_down, moving
     
-def pick_lift_up(m_size, lift_up):
-    l = lift_up[int(random(len(lift_up)))]
-    lift_up.remove(l)
-    return l
-
-def pick_lift_down(m_size):
-    x = int(random(0, m_size))
-    z = int(random(0, m_size))
-    return [x, m_size, z]
+def pick_lift(lift_list):
+    n = int(random(len(lift_list)))
+    l = lift_list[n]
+    lift_list.remove(l)
+    return l, lift_list
