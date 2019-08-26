@@ -61,13 +61,13 @@ def draw():
         m = bullets_pattern(m_size, bullets)
     elif option == 3:
         m, lift_up, lift_down, moving = lift_pattern(m_size, lift_up, lift_down, moving)
-        print('len moving: ' + str(len(moving)))
+        #print('len moving: ' + str(len(moving)))
     #m = guess(m_size)
     draw_matrix(m)
     spin += 1
-    if spin == 9 and option != 2:
+    if spin == 9 and (option != 2 or option != 3):
         spin = 0
-        #option += 1
+        option += 1
     elif spin == 20:
         spin = 0
         option += 1
