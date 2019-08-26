@@ -1,16 +1,28 @@
-from pattern import random_pattern, up_down
+from pattern import random_pattern, up_down, default_matrix, bullets_pattern, lift_pattern
+from lift import lift
 
 resolution = 800
 m_size = 8
 scl = resolution / m_size - 30
 spin = 0
-option = 0
+option = 3
+bullets = []
+lift_up = []
+lift_down = []
+moving = []
+
 
 def setup():
     size(resolution, resolution, P3D)
     #lights()>
     frameRate(2)
     background(0)
+    for x in range(m_size):
+        for z in range(m_size):
+            if random(0, 1) > .5:
+                lift_up.append(lift(x, 0, z, -1))
+            else:
+                lift_down.append(lift(x, m_size, z, 1))
             
 def draw_matrix(matrix):
     for x in range(m_size):
@@ -37,44 +49,28 @@ def draw():
     #p = int(random(0,2))
     global option
     global spin
+    global lift_up
+    global lift_up
+    global moving
     if option == 0:
         m = random_pattern(m_size)
     elif option == 1:
         m = up_down(m_size, spin)
+        global bullets
+        bullets = []
     elif option == 2:
-        m = pattern3(m_size, spin)
+        m = bullets_pattern(m_size, bullets)
+    elif option == 3:
+        m = lift_pattern(m_size, lift_up, lift_up, moving)
     #m = guess(m_size)
     draw_matrix(m)
     spin += 1
-    if spin == 9:
+    if spin == 9 and option != 2:
         spin = 0
         option += 1
-    if option == 3:
+    elif spin == 20:
+        spin = 0
+        option += 1
+    if option == 4:
         option = 0
     
-
-def pattern3(m_size, spin):
-    matrix = []
-    for i in range(m_size):
-        column = []
-        for j in range(m_size):
-            row = []
-            for h in range(m_size):
-                row.append(i - spin == j)
-            column.append(row)
-        matrix.append(column)
-    return matrix
-
-def guess(m_size):
-    matrix = []
-    for i in range(m_size):
-        column = []
-        for j in range(m_size):
-            row = []
-            for h in range(m_size):
-                row.append(False)
-            column.append(row)
-        matrix.append(column)
-    matrix[0][0][0] = True
-    matrix[0][0][7] = True
-    return matrix
