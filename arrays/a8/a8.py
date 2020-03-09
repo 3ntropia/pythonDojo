@@ -11,3 +11,4 @@ def sort_string(string):
     for char in split_list:
         result += char + " "
     return result[:-1]
+
